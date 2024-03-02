@@ -10,7 +10,7 @@
       color: #F1F1EB;
       background-color: #272822;
       font-family: 'Inconsolata', 'Courier New', monospace;
-      font-size: 1rem;
+      font-size: 1.2rem;
       line-height: 1.5;
       display: grid;
       place-items: center;
@@ -20,11 +20,45 @@
     }
     a {
       text-decoration: none;
-      color: #ffd866;
+      background-image: linear-gradient(
+        to right,
+        #ff6188,
+        #ff6188 50%,
+        #ffd866 50%
+      );
+      background-size: 200% 100%;
+      background-position: -100%;
+      display: inline-block;
+      padding: 2px 0;
+      position: relative;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: all 0.3s ease-in-out;
 
     }
+    a:before {
+      content: '';
+      background: #ff6188;
+      display: block;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      transition: all 0.3s ease-in-out;
+    }
+
     a:hover {
-      text-decoration: underline;
+    background-position: 0;
+    }
+
+    a:hover::before {
+      width: 100%;
+    }
+    a:focus-visible {
+      outline: 2px solid #ff6188;
+      border-radius: 4px;
     }
     .i0 {
       margin: 0;
